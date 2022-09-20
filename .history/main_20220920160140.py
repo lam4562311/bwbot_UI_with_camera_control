@@ -55,8 +55,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.agv = agv()
             self.SET_robot_info_to_app()
             self.control_event = threading.Event()
-            self.shutdown_event = threading.Event()
-            self.control_thread = threading.Thread(target=self.AGV_control_thread, args=[0.5])
+            self.control_thread = threading.Thread(target=self.AGV_control_thread, args=(0.5))
             self.control_thread.start()
         except:
             logging.warning('not connected')
@@ -82,18 +81,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.videoPlayer.play()
 
         self.show()
-    def closeEvent (self, event):
-        self.shutdown_event.set()
-        self.control_thread.join()
+        
     def SET_robot_info_to_app(self):
         res = self.agv.GET_robot_info()
-        
-        # if not res['charge']:
-        #     self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' Plugged in'))
-        # else:
-        #     self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' On Battery'))
-        self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'))
-        
+        if not res['charge']:
+            self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' Plugged in'))
+        else:
+            self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' On Battery'))
         self.RobotVersionVal.setText(self.translate("MainWindow", str(res['info']['version'])))
         res = self.agv.GET_galileo_status()
         
@@ -178,7 +172,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
 
     def AGV_control_thread(self, timeout):
-        while not self.shutdown_event.is_set():
+        while True:
             
             self.control_event.wait(timeout)
             self.agv.PUT_robot_speed(x = self.x * self.speed, angle = self.angle * self.speed)
@@ -237,7 +231,6 @@ class Application():
         self.app.setApplicationName("simulator")
         self.window = MainWindow()
         self.app.exec_()
-        self.window.control_thread.join()
 
 
     

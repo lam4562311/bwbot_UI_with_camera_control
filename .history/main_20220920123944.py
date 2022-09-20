@@ -1,8 +1,7 @@
 
+from cgitb import handler
 import sys
 import os
-import threading
-import time
 os.environ['PYTHON_VLC_MODULE_PATH'] = "./vlc"
 import logging
 import vlc
@@ -54,10 +53,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         try:
             self.agv = agv()
             self.SET_robot_info_to_app()
-            self.control_event = threading.Event()
-            self.shutdown_event = threading.Event()
-            self.control_thread = threading.Thread(target=self.AGV_control_thread, args=[0.5])
-            self.control_thread.start()
         except:
             logging.warning('not connected')
             self.agv = 0
@@ -82,18 +77,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.videoPlayer.play()
 
         self.show()
-    def closeEvent (self, event):
-        self.shutdown_event.set()
-        self.control_thread.join()
+        
     def SET_robot_info_to_app(self):
         res = self.agv.GET_robot_info()
-        
-        # if not res['charge']:
-        #     self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' Plugged in'))
-        # else:
-        #     self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' On Battery'))
-        self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'))
-        
+        if not res['charge']:
+            self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' Plugged in'))
+        else:
+            self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' On Battery'))
         self.RobotVersionVal.setText(self.translate("MainWindow", str(res['info']['version'])))
         res = self.agv.GET_galileo_status()
         
@@ -152,7 +142,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def SET_speed_slider_to_local_speed(self, val):
         self.speed = val/100.0
         self.SpeedVal.setText(self.translate("MainWindow", str(self.speed)))
-        
     def AGV_control_pressed_event(self, dir=None):
         if dir == 'up':
             self.x = 1.0
@@ -163,9 +152,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         elif dir == 'right':
             self.angle = -1.0
         if self.agv:
-            self.control_event.set()
-            # self.agv.PUT_robot_speed(x = self.x * self.speed, angle = self.angle * self.speed)
-        # logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
+            self.agv.PUT_robot_speed(x = self.x * self.speed, angle = self.angle * self.speed)
+        logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
         
     def AGV_control_released_event(self, dir=None):
         if dir == 'up' or dir == 'down':
@@ -173,18 +161,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         elif dir == 'left' or dir == 'right':
             self.angle = 0.0
         if self.agv:
-            self.control_event.set()
-            # self.agv.PUT_robot_speed(x = self.x * self.speed, angle = self.angle * self.speed)
-        # logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
-
-    def AGV_control_thread(self, timeout):
-        while not self.shutdown_event.is_set():
-            
-            self.control_event.wait(timeout)
             self.agv.PUT_robot_speed(x = self.x * self.speed, angle = self.angle * self.speed)
-            self.control_event.clear()
-            logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
-            
+        logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
+
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_W and self.x != 1.0:
             self.AGV_control_pressed_event(dir='up')
@@ -228,8 +207,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     #             print('not fullscreen')
     #             self.video_widget.setWindowState(Qt.WindowNoState)
     #             self.setWindowState(Qt.WindowNoState)
-    def __del__(self):
-        self.window.control_thread.join()
+
 class Application():
     def __init__(self):
         logging.basicConfig(level=logging.DEBUG, format="%(asctime)s.%(msecs)03d [%(levelname)s] [%(module)s - %(funcName)s]: %(message)s", handlers=[logging.StreamHandler(), logging.FileHandler('debug.log')] )
@@ -237,8 +215,6 @@ class Application():
         self.app.setApplicationName("simulator")
         self.window = MainWindow()
         self.app.exec_()
-        self.window.control_thread.join()
-
 
     
 

@@ -83,17 +83,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.show()
     def closeEvent (self, event):
-        self.shutdown_event.set()
         self.control_thread.join()
     def SET_robot_info_to_app(self):
         res = self.agv.GET_robot_info()
-        
-        # if not res['charge']:
-        #     self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' Plugged in'))
-        # else:
-        #     self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' On Battery'))
-        self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'))
-        
+        if not res['charge']:
+            self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' Plugged in'))
+        else:
+            self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' On Battery'))
         self.RobotVersionVal.setText(self.translate("MainWindow", str(res['info']['version'])))
         res = self.agv.GET_galileo_status()
         

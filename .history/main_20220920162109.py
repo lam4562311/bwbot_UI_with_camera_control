@@ -87,13 +87,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.control_thread.join()
     def SET_robot_info_to_app(self):
         res = self.agv.GET_robot_info()
-        
         # if not res['charge']:
         #     self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' Plugged in'))
         # else:
         #     self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'+' On Battery'))
         self.BatteryLevelVal.setText(self.translate("MainWindow", str(res['battery'])+'%'))
-        
         self.RobotVersionVal.setText(self.translate("MainWindow", str(res['info']['version'])))
         res = self.agv.GET_galileo_status()
         

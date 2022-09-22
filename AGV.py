@@ -4,7 +4,8 @@ from socket import *
 import time
 import math
 import logging
-
+import numpy as np
+import cv2
 
 class agv():
     # auto connect existed lan network robot
@@ -19,28 +20,20 @@ class agv():
         self.robot_ip = addr[0]
         self.api_url = "http://{ip}:3546/api/v1".format(ip=self.robot_ip)
         res = requests.get("{api_url}/token?username=admin&password=admin".format(api_url=self.api_url))
+        print(res.json())
         self.token = res.json()["token"]
-        
-    def get_request(self, URL, json=None):
-        res = requests.get("{api_url}{URL}?token={token}".format(
-            api_url=self.api_url, 
-            URL = URL, 
-            token = self.token
-            )
-            , json=json)
-        content = res.json()
-        logging.debug(content)
-        return content
     
-    def put_request(self, URL, json=None):
-        logging.debug(json)
-        res = requests.put("{api_url}{URL}?token={token}".format(
-            api_url=self.api_url, 
-            URL = URL, 
-            token = self.token
-            )
-            , json=json)
-        content = res.json()
+    def send_request(self, method, API, extra_URL = None, **kwargs):
+        res = requests.request(method, '{api_url}{API}?token={token}'.format(
+            api_url = self.api_url,
+            API = API, 
+            token = self.token, 
+        ), **kwargs)
+        
+        try:
+            content = res.json()
+        except:
+            content = res.content
         logging.debug(content)
         return content
         
@@ -62,7 +55,7 @@ class agv():
         'slam_type': 'camera'
         }
         '''
-        return self.get_request('/system/info')
+        return self.send_request(method='get', API='/system/info')
 
     def GET_galileo_status(self):
         '''
@@ -87,7 +80,63 @@ class agv():
         "currentAngle":  # 当前机器人在map坐标系下的z轴转角(yaw)
         "busyStatus": #当busy为true时系统将仍然后接收新指令，但是不会立即处理。当系统退出busy状态后再处理消息
         '''
-        return self.get_request('/system/galileo_status')
+        return self.send_request('get', '/system/galileo_status')
+    
+    def GET_start_navigation(self, map=None, path=None, start_index=None, level=None):
+        '''
+        map	        string
+        path	    string
+        start_index	int	    init position index, -1 equal to charing spot
+        level	    int	    current floor level
+        '''
+        return self.send_request('get', '/navigation/start', params={'map': map, 'path': path, 'start_index': start_index, 'level': level})
+        
+    def GET_stop_navigation(self):
+        return self.send_request('get', '/navigation/stop')
+    
+    def GET_robot_pose(self):
+        '''
+        x	    float	x coordinate
+        y	    float	y coordinate
+        angle	float	orientation
+        '''
+        return self.send_request('get', '/navigation/pose')
+    
+    def GET_current_path(self):
+        '''
+        map	    string	concurrently map name
+        path	string	concurrently path name
+        '''
+        return self.send_request(method='get', API='/navigation/current_path')
+    def GET_current_map(self):
+        '''
+        name        string  concurrently map name
+        md5sum      string  map md5sum value
+        '''
+        return self.send_request(method='get', API='/navigation/current_map') 
+    
+    def GET_map_pgm(self, map_name):
+        '''
+        name	string	map name
+        Return PGM information
+        '''
+        return self.send_request('get', '/navigation/map_pgm', params = {'name': map_name})
+    def GET_map_png(self, map_name):
+        '''
+        name	string	map name
+        Return PNG information
+        '''
+        return self.send_request('get', '/navigation/map_png', params = {'name': map_name})
+    
+    def POST_nav_task(self, x, y, orientation, map=None, path=None):
+        '''
+        x	    float	target x coordinate(meter)
+        y	    float	target y coordinate(meter)
+        theta	float	target orientation
+        map	    string	
+        path	string	
+        '''
+        return self.send_request('post', '/navigation/start_nav_task', json = {'x': x, 'y': y, 'theta': orientation, 'map': map, 'path': path})
     
     def PUT_robot_speed(self, x = 0, y = 0, angle = 0):
         '''
@@ -96,14 +145,37 @@ class agv():
         speed angle : turning clockwise and anti-clockwise
         ''' 
         
-        return self.put_request('/system/speed', json = {
+        return self.send_request('put', '/system/speed', json = {
             "speed_x"       : x, 
             "speed_y"       : y, 
             "speed_angle"   : angle, 
         })
         
 def main():
+    logging.basicConfig(level=logging.DEBUG,
+        format="%(asctime)s.%(msecs)03d [%(levelname)s] [%(module)s - %(funcName)s]: %(message)s",
+        handlers=[logging.StreamHandler(), logging.FileHandler('debug.log')] )
     asd  = agv()
-    asd.PUT_robot_speed()
+    # asd.PUT_robot_speed()
+
+    asd.GET_start_navigation()
+    result = asd.GET_current_map()
+    map = result['name']
+    map_image = asd.GET_map_png(map)
+    print(type(map_image))
+    nparr = np.frombuffer(map_image, np.uint8)
+    img_np = cv2.imdecode(nparr, cv2.IMREAD_COLOR ) # cv2.IMREAD_COLOR in OpenCV 3.1
+    while True:
+        cv2.imshow('map', img_np)
+        if cv2.waitKey(1) == 27:
+            cv2.destroyAllWindows()
+            break
+    print (img_np)
+    res = asd.GET_robot_pose()
+    x = res['x']
+    y = res['y']
+    orientation = res['angle']
+    asd.POST_nav_task(x-0.1, y, orientation)
+    asd.GET_stop_navigation()
 if __name__ == "__main__":
     main()

@@ -11,11 +11,13 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtWebEngineWidgets import *
 from PyQt5.QtPrintSupport import *
+
 from chitu import Ui_MainWindow
 from AGV import agv
 from UVC_Controller import UVCController
+from ptz_control import *
 
-
+CameraIP = '192.168.8.251'
 CameraSetting = {
     'AbsolutePanMin'        : -170, 
     'AbsolutePanMax'        : 170, 
@@ -26,12 +28,12 @@ CameraSetting = {
 }
 
 class vlc_player():
-    def __init__(self):
-        self.Instance = vlc.Instance(['--video-on-top'])
+    def __init__(self, url):
+        self.Instance = vlc.Instance() # ['--video-on-top']
         self.player = self.Instance.media_player_new()
         self.player.video_set_mouse_input(False)
         self.player.video_set_key_input(False)
-        self.player.set_mrl("rtsp://admin:admin@192.168.8.251:554/live/av0", "network-caching=300")
+        self.player.set_mrl(url, "network-caching=300")
         self.player.audio_set_mute(True)
     
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -53,14 +55,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         }
         try:
             self.agv = agv()
-            self.SET_robot_info_to_app()
             self.control_event = threading.Event()
             self.shutdown_event = threading.Event()
+            
+            self.periodic_info_thread = threading.Thread(target=self.AGV_info_thread, args=[5])
             self.control_thread = threading.Thread(target=self.AGV_control_thread, args=[0.5])
+            
+            self.periodic_info_thread.start()
             self.control_thread.start()
+            
+            # get map
+            self.agv.GET_start_navigation()
+            result = self.agv.GET_current_map()
+            map = result['name']
+            Qmap = QPixmap()
+            Qmap.loadFromData(self.agv.GET_map_png(map), 'png')
+            self.AGV_MAP_IMG.setPixmap(Qmap)
+            self.agv.GET_stop_navigation()
+            ###############################
+            
+
         except:
             logging.warning('not connected')
             self.agv = 0
+
         
         self.SET_mouse_event_to_control_robot_AGV_button()
         self.SpeedSlider.valueChanged.connect(self.SET_speed_slider_to_local_speed)
@@ -71,20 +89,39 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.camera.PanTiltAbsoluteControl(0, 0)
         self.camera.ZoomAbsoluteControl(0)
         
-        self.videoPlayer = vlc_player().player
+        self.onvif_camera = ptzControl(CameraIP, 80, 'admin', 'password')
+        if True:
+            def onvif_camera(self):
+                pass
+        
+        self.videoPlayer = vlc_player("rtsp://admin:password@{}:554/live/av0".format(CameraIP)).player
+        if self.agv:
+            # get bottom camera image
+            self.bottom_camera = vlc_player("http://{ip}:8080/stream?topic=/camera_node/image_raw".format(ip=self.agv.robot_ip)).player
+        
         # self.frame.mouseDoubleClickEvent = self.mouse_event
         if sys.platform.startswith('linux'): # for Linux using the X Server
             self.videoPlayer.set_xwindow(self.video_widget.winId())
+            self.bottom_camera.set_xwindow(self.AGV_CAMERA.winId())
         elif sys.platform == "win32": # for Windows
             self.videoPlayer.set_hwnd(self.video_widget.winId())
+            self.bottom_camera.set_hwnd(self.AGV_CAMERA.winId())
         elif sys.platform == "darwin": # for MacOS
             self.videoPlayer.set_nsobject(int(self.video_widget.winId()))
+            self.bottom_camera.set_nsobject(int(self.AGV_CAMERA.winId()))
         self.videoPlayer.play()
+        self.bottom_camera.play()
+
 
         self.show()
+        
     def closeEvent (self, event):
+        self.speed = 0.0
+        self.control_event.set()
         self.shutdown_event.set()
+        self.periodic_info_thread.join()
         self.control_thread.join()
+        
     def SET_robot_info_to_app(self):
         res = self.agv.GET_robot_info()
         
@@ -103,7 +140,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.ProcessingStatusVal.setText(self.translate("MainWindow", 'Busy'))
         else:
             self.ProcessingStatusVal.setText(self.translate("MainWindow", 'Running'))
-        self.VoltageVal.setText(self.translate("MainWindow", str(round(res['power'], 2))+' V'))
+        self.VoltageVal.setText(self.translate("MainWindow", str(round(res['power'], 1))+' V'))
 
 # Camera Control
    
@@ -164,8 +201,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.angle = -1.0
         if self.agv:
             self.control_event.set()
-            # self.agv.PUT_robot_speed(x = self.x * self.speed, angle = self.angle * self.speed)
-        # logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
         
     def AGV_control_released_event(self, dir=None):
         if dir == 'up' or dir == 'down':
@@ -174,17 +209,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.angle = 0.0
         if self.agv:
             self.control_event.set()
-            # self.agv.PUT_robot_speed(x = self.x * self.speed, angle = self.angle * self.speed)
-        # logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
 
-    def AGV_control_thread(self, timeout):
-        while not self.shutdown_event.is_set():
-            
-            self.control_event.wait(timeout)
-            self.agv.PUT_robot_speed(x = self.x * self.speed, angle = self.angle * self.speed)
-            self.control_event.clear()
-            logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
-            
+
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_W and self.x != 1.0:
             self.AGV_control_pressed_event(dir='up')
@@ -228,6 +254,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     #             print('not fullscreen')
     #             self.video_widget.setWindowState(Qt.WindowNoState)
     #             self.setWindowState(Qt.WindowNoState)
+    
+    # Thread
+    def AGV_info_thread(self, timeout):
+        while not self.shutdown_event.is_set():
+            self.SET_robot_info_to_app()
+            self.shutdown_event.wait(timeout)
+            
+    def AGV_control_thread(self, timeout):
+        flag = 0
+        while not self.shutdown_event.is_set():
+            
+            self.control_event.wait(timeout)
+            x = self.x * self.speed
+            angle = self.angle * self.speed
+            self.agv.PUT_robot_speed(x, angle)
+            self.control_event.clear()
+            logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
+            if x + angle == 0 and not flag:
+                flag = 1
+                self.control_event.wait()
+            elif flag:
+                flag = 0
+                
     def __del__(self):
         self.window.control_thread.join()
 class Application():

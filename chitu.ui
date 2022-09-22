@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>981</width>
-    <height>739</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,10 +20,10 @@
    <widget class="QWidget" name="widget_6" native="true">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>400</y>
-      <width>971</width>
-      <height>211</height>
+      <x>0</x>
+      <y>740</y>
+      <width>1911</width>
+      <height>261</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -97,6 +97,9 @@
           </property>
           <property name="text">
            <string>Robot Status</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
           </property>
          </widget>
         </item>
@@ -533,6 +536,9 @@ QPushButton:hover {
           <property name="text">
            <string>Camera Control</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
          </widget>
         </item>
         <item>
@@ -648,15 +654,15 @@ QPushButton:hover {
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>982</width>
-      <height>398</height>
+      <width>1911</width>
+      <height>731</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_7">
      <item>
       <widget class="QWidget" name="widget_7" native="true">
-       <layout class="QVBoxLayout" name="verticalLayout_5">
-        <item>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
          <widget class="QWidget" name="AGV_CAMERA" native="true">
           <property name="minimumSize">
            <size>
@@ -664,31 +670,35 @@ QPushButton:hover {
             <height>150</height>
            </size>
           </property>
-          <widget class="QFrame" name="AGV_CAMERA_VID">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>120</width>
-             <height>80</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>120</width>
-             <height>80</height>
-            </size>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-          </widget>
+          <property name="styleSheet">
+           <string notr="true">.Qwidget{ 
+padding: 10px;
+ border-style: solid;
+ border-width: 3px;
+ border-radius: 7px;
+}</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QFrame" name="AGV_CAMERA_VID">
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
-        <item>
+        <item row="1" column="0">
          <widget class="QWidget" name="AGV_MAP" native="true">
           <property name="minimumSize">
            <size>
@@ -696,28 +706,24 @@ QPushButton:hover {
             <height>150</height>
            </size>
           </property>
-          <widget class="QFrame" name="AGV_MAP_PIC">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>120</width>
-             <height>80</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>120</width>
-             <height>80</height>
-            </size>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-          </widget>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="AGV_MAP_IMG">
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
@@ -727,32 +733,28 @@ QPushButton:hover {
       <widget class="QWidget" name="video_widget" native="true">
        <property name="minimumSize">
         <size>
-         <width>640</width>
-         <height>380</height>
+         <width>1280</width>
+         <height>720</height>
         </size>
        </property>
-       <widget class="QFrame" name="frame">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>640</width>
-          <height>380</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>640</width>
-          <height>360</height>
-         </size>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame">
+          <property name="minimumSize">
+           <size>
+            <width>640</width>
+            <height>360</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
     </layout>
@@ -763,7 +765,7 @@ QPushButton:hover {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>981</width>
+     <width>1920</width>
      <height>22</height>
     </rect>
    </property>

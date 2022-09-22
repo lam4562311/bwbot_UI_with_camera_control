@@ -1,0 +1,7 @@
+python-vlc
+libusb
+pyqt5
+PyQtWebEngine
+requests
+onvif_zeep
+opencv-python

@@ -1,3 +1,5 @@
+
+
 import requests
 import json
 from socket import *
@@ -128,6 +130,18 @@ class agv():
         '''
         return self.send_request('get', '/navigation/map_png', params = {'name': map_name})
     
+    def GET_navigation_points_connections(self):
+        return self.send_request('get', '/navigation/point_connections')
+    
+    def GET_navigation_move_to_index(self, index, map_name, path, level=None):
+        '''
+        index	int	    point index
+        map	    string	map name
+        path	string	path
+        level	int	    map level
+        '''
+        return self.send_request('get', '/navigation/move_to_index', params = {'index': index, 'map': map_name, 'path': path, 'level': level})
+    
     def POST_nav_task(self, x, y, orientation, map=None, path=None):
         '''
         x	    float	target x coordinate(meter)
@@ -136,7 +150,24 @@ class agv():
         map	    string	
         path	string	
         '''
-        return self.send_request('post', '/navigation/start_nav_task', json = {'x': x, 'y': y, 'theta': orientation, 'map': map, 'path': path})
+        if map and path:
+            return self.send_request('post', '/navigation/start_nav_task', json = {'x': x, 'y': y, 'theta': orientation, 'map': map, 'path': path})
+        else:
+            return self.send_request('post', '/navigation/start_nav_task', json= {'x': x, 'y': y, 'theta': orientation})
+    def GET_stop_nav_task(self):
+        return self.send_request('get', '/navigation/stop_nav_task')
+    
+    def GET_task(self, id):
+        return self.send_request('get', '/task', params = {'id': id})
+    # def POST_task(self, id):
+    #     return self.send_request('post', '/task', params = {'id': id})
+    
+    def GET_pause_task(self, id):
+        return self.send_request('get', '/task/pause', params = {'id': id})
+    def GET_resume_task(self, id):
+        return self.send_request('get', '/task/resume', params = {'id': id})
+    def GET_stop_task(self, id):
+        return self.send_request('get', '/task/stop', params = {'id': id})
     
     def PUT_robot_speed(self, x = 0, y = 0, angle = 0):
         '''
@@ -165,17 +196,18 @@ def main():
     print(type(map_image))
     nparr = np.frombuffer(map_image, np.uint8)
     img_np = cv2.imdecode(nparr, cv2.IMREAD_COLOR ) # cv2.IMREAD_COLOR in OpenCV 3.1
-    while True:
-        cv2.imshow('map', img_np)
-        if cv2.waitKey(1) == 27:
-            cv2.destroyAllWindows()
-            break
+    # while True:
+    #     cv2.imshow('map', img_np)
+    #     if cv2.waitKey(1) == 27:
+    #         cv2.destroyAllWindows()
+    #         break
     print (img_np)
     res = asd.GET_robot_pose()
     x = res['x']
     y = res['y']
     orientation = res['angle']
     asd.POST_nav_task(x-0.1, y, orientation)
+    asd.GET_navigation_points_connections()
     asd.GET_stop_navigation()
 if __name__ == "__main__":
     main()

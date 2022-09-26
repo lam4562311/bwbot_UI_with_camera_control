@@ -1,0 +1,50 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+        simple:
+            format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        detail:
+            format: "%(asctime)s.%(msecs)03d [%(levelname)s] [%(module)s - %(funcName)s]: %(message)s"
+handlers:
+    console:
+            class: logging.StreamHandler
+            level: INFO
+            formatter: simple
+            stream: ext://sys.stdout
+    debug_console:
+            class: logging.StreamHandler
+            level: DEBUG
+            formatter: detail
+            stream: ext://sys.stdout
+    info_file_handler:
+            class: logging.handlers.RotatingFileHandler
+            level: INFO
+            formatter: simple
+            filename: ./log/info.log
+            maxBytes: 10485760
+            backupCount: 20
+            encoding: utf8
+    debug_file_handler:
+            class: logging.handlers.RotatingFileHandler
+            level: DEBUG
+            formatter: detail
+            filename: ./log/debug.log
+            maxBytes: 10485760
+            backupCount: 20
+            encoding: utf8
+    error_file_handler:
+            class: logging.handlers.RotatingFileHandler
+            level: ERROR
+            formatter: simple
+            filename: ./log/errors.log
+            maxBytes: 10485760
+            backupCount: 20
+            encoding: utf8
+loggers:
+    UI_module:
+            level: DEBUG
+            handlers: [debug_file_handler, debug_console]
+            propagate: yes
+root:
+    level: DEBUG
+    handlers: [debug_console, info_file_handler, debug_file_handler, error_file_handler]

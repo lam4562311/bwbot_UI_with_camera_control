@@ -1,3 +1,4 @@
+datetime
 python-vlc
 libusb
 pyqt5

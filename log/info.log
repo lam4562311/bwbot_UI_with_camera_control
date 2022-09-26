@@ -1,0 +1,606 @@
+2022-09-23 11:02:34,793 - __main__ - WARNING - Initialize main window
+2022-09-23 11:03:26,773 - root - WARNING - Initialize main window
+2022-09-23 11:04:53,776 - root - WARNING - Initialize main window
+2022-09-23 11:04:54,775 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 11:05:23,855 - root - WARNING - Initialize main window
+2022-09-23 11:05:24,812 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 11:05:30,458 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 11:05:30,565 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 11:05:31,130 - root - INFO - speed_x: 0.0, speed_angle: 1.0, speed_factor: 0.0
+2022-09-23 11:05:31,283 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.0
+2022-09-23 11:05:31,642 - root - INFO - speed_x: 0.0, speed_angle: -1.0, speed_factor: 0.0
+2022-09-23 11:05:31,844 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.0
+2022-09-23 11:06:32,338 - root - INFO - Initialize main window
+2022-09-23 11:06:33,301 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:30:41,409 - root - INFO - Initialize main window
+2022-09-23 12:30:41,412 - root - ERROR - not connected
+2022-09-23 12:30:41,464 - root - INFO - Initialize main window
+2022-09-23 12:30:41,464 - root - ERROR - not connected
+2022-09-23 12:30:42,019 - root - ERROR - libusb_open_device() failed
+2022-09-23 12:30:42,019 - root - INFO - Claimed Interface
+2022-09-23 12:30:42,021 - root - INFO - Writing Data...
+2022-09-23 12:30:42,022 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:30:42,023 - root - INFO - Writing Data...
+2022-09-23 12:30:42,026 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:31:02,514 - root - INFO - Initialize main window
+2022-09-23 12:31:03,195 - root - ERROR - not connected
+2022-09-23 12:31:03,496 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:31:03,517 - root - INFO - Claimed Interface
+2022-09-23 12:31:03,519 - root - INFO - Writing Data...
+2022-09-23 12:31:03,519 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:31:03,520 - root - INFO - Writing Data...
+2022-09-23 12:31:03,521 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:31:31,097 - root - INFO - Initialize main window
+2022-09-23 12:31:31,804 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:32:00,614 - root - INFO - Initialize main window
+2022-09-23 12:32:00,615 - root - ERROR - not connected
+2022-09-23 12:32:22,460 - root - INFO - Initialize main window
+2022-09-23 12:32:23,131 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:32:27,644 - root - INFO - Claimed Interface
+2022-09-23 12:32:27,646 - root - INFO - Writing Data...
+2022-09-23 12:32:27,646 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:32:27,647 - root - INFO - Writing Data...
+2022-09-23 12:32:27,648 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:38:24,561 - root - INFO - Initialize main window
+2022-09-23 12:38:25,312 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:38:55,189 - root - INFO - Initialize main window
+2022-09-23 12:38:55,190 - root - ERROR - not connected
+2022-09-23 12:38:55,545 - root - INFO - Claimed Interface
+2022-09-23 12:38:55,546 - root - INFO - Writing Data...
+2022-09-23 12:38:55,547 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:38:55,548 - root - INFO - Writing Data...
+2022-09-23 12:38:55,549 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:39:12,163 - root - INFO - Initialize main window
+2022-09-23 12:39:12,925 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:39:17,281 - root - INFO - Claimed Interface
+2022-09-23 12:39:17,283 - root - INFO - Writing Data...
+2022-09-23 12:39:17,283 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:39:17,284 - root - INFO - Writing Data...
+2022-09-23 12:39:17,285 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:42:49,127 - root - INFO - Initialize main window
+2022-09-23 12:42:49,128 - root - ERROR - not connected
+2022-09-23 12:42:49,469 - root - INFO - Claimed Interface
+2022-09-23 12:42:49,470 - root - INFO - Writing Data...
+2022-09-23 12:42:49,470 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:42:49,471 - root - INFO - Writing Data...
+2022-09-23 12:42:49,472 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:42:55,204 - root - INFO - Initialize main window
+2022-09-23 12:42:55,865 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:42:59,904 - root - ERROR - not connected
+2022-09-23 12:43:00,228 - root - INFO - Claimed Interface
+2022-09-23 12:43:00,229 - root - INFO - Writing Data...
+2022-09-23 12:43:00,230 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:43:00,231 - root - INFO - Writing Data...
+2022-09-23 12:43:00,232 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:43:47,409 - root - INFO - Initialize main window
+2022-09-23 12:43:48,098 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:43:52,146 - root - ERROR - not connected
+2022-09-23 12:43:52,545 - root - INFO - Claimed Interface
+2022-09-23 12:43:52,547 - root - INFO - Writing Data...
+2022-09-23 12:43:52,548 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:43:52,548 - root - INFO - Writing Data...
+2022-09-23 12:43:52,549 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:44:01,515 - root - INFO - Initialize main window
+2022-09-23 12:44:02,253 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:44:06,300 - root - ERROR - not connected
+2022-09-23 12:44:06,616 - root - INFO - Claimed Interface
+2022-09-23 12:44:06,618 - root - INFO - Writing Data...
+2022-09-23 12:44:06,618 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:44:06,619 - root - INFO - Writing Data...
+2022-09-23 12:44:06,620 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:45:17,778 - root - INFO - Initialize main window
+2022-09-23 12:45:18,527 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:45:22,921 - root - INFO - Claimed Interface
+2022-09-23 12:45:22,923 - root - INFO - Writing Data...
+2022-09-23 12:45:22,924 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:45:22,925 - root - INFO - Writing Data...
+2022-09-23 12:45:22,925 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:46:44,232 - root - INFO - Initialize main window
+2022-09-23 12:46:44,893 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:46:49,296 - root - INFO - Claimed Interface
+2022-09-23 12:46:49,297 - root - INFO - Writing Data...
+2022-09-23 12:46:49,297 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:46:49,298 - root - INFO - Writing Data...
+2022-09-23 12:46:49,299 - root - WARNING - 2 - b'Other error'
+2022-09-23 12:53:55,609 - root - INFO - Initialize main window
+2022-09-23 12:53:56,251 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 12:54:00,711 - root - INFO - Claimed Interface
+2022-09-23 12:54:00,712 - root - INFO - Writing Data...
+2022-09-23 12:54:00,713 - root - WARNING - 8 - b'Other error'
+2022-09-23 12:54:00,714 - root - INFO - Writing Data...
+2022-09-23 12:54:00,714 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:12:33,183 - root - INFO - Initialize main window
+2022-09-23 14:12:33,890 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:12:38,287 - root - INFO - Claimed Interface
+2022-09-23 14:12:38,288 - root - INFO - Writing Data...
+2022-09-23 14:12:38,289 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:12:38,290 - root - INFO - Writing Data...
+2022-09-23 14:12:38,290 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:13:16,372 - root - INFO - Initialize main window
+2022-09-23 14:13:17,114 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:13:21,545 - root - INFO - Claimed Interface
+2022-09-23 14:13:21,546 - root - INFO - Writing Data...
+2022-09-23 14:13:21,547 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:13:21,548 - root - INFO - Writing Data...
+2022-09-23 14:13:21,549 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:14:24,246 - root - INFO - Initialize main window
+2022-09-23 14:14:24,946 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:14:29,477 - root - INFO - Claimed Interface
+2022-09-23 14:14:29,478 - root - INFO - Writing Data...
+2022-09-23 14:14:29,478 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:14:29,479 - root - INFO - Writing Data...
+2022-09-23 14:14:29,480 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:16:32,326 - root - INFO - Initialize main window
+2022-09-23 14:16:33,017 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:16:38,358 - root - INFO - Claimed Interface
+2022-09-23 14:16:38,359 - root - INFO - Writing Data...
+2022-09-23 14:16:38,360 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:16:38,361 - root - INFO - Writing Data...
+2022-09-23 14:16:38,362 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:17:55,929 - root - INFO - Initialize main window
+2022-09-23 14:17:56,630 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:18:01,082 - root - INFO - Claimed Interface
+2022-09-23 14:18:01,084 - root - INFO - Writing Data...
+2022-09-23 14:18:01,085 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:18:01,086 - root - INFO - Writing Data...
+2022-09-23 14:18:01,086 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:21:27,080 - root - INFO - Initialize main window
+2022-09-23 14:21:27,786 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:21:32,198 - root - INFO - Claimed Interface
+2022-09-23 14:21:32,199 - root - INFO - Writing Data...
+2022-09-23 14:21:32,200 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:21:32,200 - root - INFO - Writing Data...
+2022-09-23 14:21:32,201 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:23:03,480 - root - INFO - Initialize main window
+2022-09-23 14:23:04,126 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:23:08,529 - root - INFO - Claimed Interface
+2022-09-23 14:23:08,531 - root - INFO - Writing Data...
+2022-09-23 14:23:08,532 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:23:08,532 - root - INFO - Writing Data...
+2022-09-23 14:23:08,533 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:24:50,618 - root - INFO - Initialize main window
+2022-09-23 14:24:51,315 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:24:55,705 - root - INFO - Claimed Interface
+2022-09-23 14:24:55,707 - root - INFO - Writing Data...
+2022-09-23 14:24:55,708 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:24:55,709 - root - INFO - Writing Data...
+2022-09-23 14:24:55,709 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:32:22,591 - root - INFO - Initialize main window
+2022-09-23 14:32:23,267 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:32:27,655 - root - INFO - Claimed Interface
+2022-09-23 14:32:27,656 - root - INFO - Writing Data...
+2022-09-23 14:32:27,656 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:32:27,657 - root - INFO - Writing Data...
+2022-09-23 14:32:27,658 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:38:43,055 - root - INFO - Initialize main window
+2022-09-23 14:38:44,131 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:38:44,158 - root - INFO - Claimed Interface
+2022-09-23 14:38:44,159 - root - INFO - Writing Data...
+2022-09-23 14:38:44,160 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:38:44,162 - root - INFO - Writing Data...
+2022-09-23 14:38:44,163 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:41:36,428 - root - INFO - Initialize main window
+2022-09-23 14:41:37,086 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:41:41,518 - root - INFO - Claimed Interface
+2022-09-23 14:41:41,519 - root - INFO - Writing Data...
+2022-09-23 14:41:41,520 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:41:41,521 - root - INFO - Writing Data...
+2022-09-23 14:41:41,523 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:48:28,796 - root - INFO - Initialize main window
+2022-09-23 14:48:29,539 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:48:33,965 - root - INFO - Claimed Interface
+2022-09-23 14:48:33,966 - root - INFO - Writing Data...
+2022-09-23 14:48:33,967 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:48:33,968 - root - INFO - Writing Data...
+2022-09-23 14:48:33,969 - root - WARNING - 2 - b'Other error'
+2022-09-23 14:51:04,074 - root - INFO - Initialize main window
+2022-09-23 14:51:04,773 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 14:51:09,139 - root - INFO - Claimed Interface
+2022-09-23 14:51:09,140 - root - INFO - Writing Data...
+2022-09-23 14:51:09,140 - root - WARNING - 8 - b'Other error'
+2022-09-23 14:51:09,141 - root - INFO - Writing Data...
+2022-09-23 14:51:09,142 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:13:38,109 - root - INFO - Initialize main window
+2022-09-23 15:13:38,874 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:13:39,295 - root - INFO - Claimed Interface
+2022-09-23 15:13:39,297 - root - INFO - Writing Data...
+2022-09-23 15:13:39,297 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:13:39,298 - root - INFO - Writing Data...
+2022-09-23 15:13:39,299 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:15:11,975 - root - INFO - Initialize main window
+2022-09-23 15:15:12,640 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:15:17,093 - root - INFO - Claimed Interface
+2022-09-23 15:15:17,094 - root - INFO - Writing Data...
+2022-09-23 15:15:17,094 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:15:17,095 - root - INFO - Writing Data...
+2022-09-23 15:15:17,096 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:30:56,287 - root - INFO - Initialize main window
+2022-09-23 15:30:57,017 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:30:57,386 - root - INFO - Claimed Interface
+2022-09-23 15:30:57,387 - root - INFO - Writing Data...
+2022-09-23 15:30:57,388 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:30:57,389 - root - INFO - Writing Data...
+2022-09-23 15:30:57,390 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:40:28,373 - root - INFO - Initialize main window
+2022-09-23 15:40:29,113 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:40:33,656 - root - INFO - Claimed Interface
+2022-09-23 15:40:33,658 - root - INFO - Writing Data...
+2022-09-23 15:40:33,658 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:40:33,660 - root - INFO - Writing Data...
+2022-09-23 15:40:33,661 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:41:52,624 - root - INFO - Initialize main window
+2022-09-23 15:41:53,353 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:41:57,864 - root - INFO - Claimed Interface
+2022-09-23 15:41:57,866 - root - INFO - Writing Data...
+2022-09-23 15:41:57,866 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:41:57,867 - root - INFO - Writing Data...
+2022-09-23 15:41:57,868 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:43:12,094 - root - INFO - Initialize main window
+2022-09-23 15:43:12,811 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:43:17,377 - root - INFO - Claimed Interface
+2022-09-23 15:43:17,378 - root - INFO - Writing Data...
+2022-09-23 15:43:17,379 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:43:17,380 - root - INFO - Writing Data...
+2022-09-23 15:43:17,380 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:43:58,200 - root - INFO - Initialize main window
+2022-09-23 15:43:58,889 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:44:03,273 - root - INFO - Claimed Interface
+2022-09-23 15:44:03,274 - root - INFO - Writing Data...
+2022-09-23 15:44:03,275 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:44:03,275 - root - INFO - Writing Data...
+2022-09-23 15:44:03,276 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:54:47,430 - root - INFO - Initialize main window
+2022-09-23 15:54:48,401 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:54:48,424 - root - INFO - Claimed Interface
+2022-09-23 15:54:48,425 - root - INFO - Writing Data...
+2022-09-23 15:54:48,426 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:54:48,427 - root - INFO - Writing Data...
+2022-09-23 15:54:48,428 - root - WARNING - 2 - b'Other error'
+2022-09-23 15:56:35,275 - root - INFO - Initialize main window
+2022-09-23 15:56:36,303 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 15:56:36,325 - root - INFO - Claimed Interface
+2022-09-23 15:56:36,326 - root - INFO - Writing Data...
+2022-09-23 15:56:36,327 - root - WARNING - 8 - b'Other error'
+2022-09-23 15:56:36,328 - root - INFO - Writing Data...
+2022-09-23 15:56:36,330 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:01:22,542 - root - INFO - Initialize main window
+2022-09-23 16:01:23,230 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:01:23,623 - root - INFO - Claimed Interface
+2022-09-23 16:01:23,624 - root - INFO - Writing Data...
+2022-09-23 16:01:23,625 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:01:23,626 - root - INFO - Writing Data...
+2022-09-23 16:01:23,626 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:02:11,500 - root - INFO - Initialize main window
+2022-09-23 16:02:12,168 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:02:12,541 - root - INFO - Claimed Interface
+2022-09-23 16:02:12,542 - root - INFO - Writing Data...
+2022-09-23 16:02:12,543 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:02:12,544 - root - INFO - Writing Data...
+2022-09-23 16:02:12,544 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:03:11,159 - root - INFO - Initialize main window
+2022-09-23 16:03:11,813 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:03:16,316 - root - INFO - Claimed Interface
+2022-09-23 16:03:16,317 - root - INFO - Writing Data...
+2022-09-23 16:03:16,318 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:03:16,318 - root - INFO - Writing Data...
+2022-09-23 16:03:16,319 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:04:28,008 - root - INFO - Initialize main window
+2022-09-23 16:04:28,654 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:04:33,215 - root - INFO - Claimed Interface
+2022-09-23 16:04:33,216 - root - INFO - Writing Data...
+2022-09-23 16:04:33,217 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:04:33,217 - root - INFO - Writing Data...
+2022-09-23 16:04:33,218 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:12:32,224 - root - INFO - Initialize main window
+2022-09-23 16:12:32,991 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:12:37,383 - root - INFO - Claimed Interface
+2022-09-23 16:12:37,384 - root - INFO - Writing Data...
+2022-09-23 16:12:37,385 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:12:37,386 - root - INFO - Writing Data...
+2022-09-23 16:12:37,387 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:13:08,478 - root - INFO - Initialize main window
+2022-09-23 16:13:09,525 - root - INFO - Claimed Interface
+2022-09-23 16:13:09,527 - root - INFO - Writing Data...
+2022-09-23 16:13:09,528 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:13:09,528 - root - INFO - Writing Data...
+2022-09-23 16:13:09,529 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:13:09,575 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:13:54,357 - root - INFO - Initialize main window
+2022-09-23 16:13:55,319 - root - INFO - Claimed Interface
+2022-09-23 16:13:55,321 - root - INFO - Writing Data...
+2022-09-23 16:13:55,321 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:13:55,322 - root - INFO - Writing Data...
+2022-09-23 16:13:55,323 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:13:55,355 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:15:15,238 - root - INFO - Initialize main window
+2022-09-23 16:15:15,934 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:15:20,405 - root - INFO - Claimed Interface
+2022-09-23 16:15:20,406 - root - INFO - Writing Data...
+2022-09-23 16:15:20,406 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:15:20,407 - root - INFO - Writing Data...
+2022-09-23 16:15:20,408 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:15:48,608 - root - INFO - Initialize main window
+2022-09-23 16:15:49,344 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:15:53,740 - root - INFO - Claimed Interface
+2022-09-23 16:15:53,741 - root - INFO - Writing Data...
+2022-09-23 16:15:53,742 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:15:53,742 - root - INFO - Writing Data...
+2022-09-23 16:15:53,743 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:17:08,369 - root - INFO - Initialize main window
+2022-09-23 16:17:09,114 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:17:13,519 - root - INFO - Claimed Interface
+2022-09-23 16:17:13,521 - root - INFO - Writing Data...
+2022-09-23 16:17:13,522 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:17:13,523 - root - INFO - Writing Data...
+2022-09-23 16:17:13,523 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:18:18,587 - root - INFO - Initialize main window
+2022-09-23 16:18:19,562 - root - INFO - Claimed Interface
+2022-09-23 16:18:19,563 - root - INFO - Writing Data...
+2022-09-23 16:18:19,564 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:18:19,565 - root - INFO - Writing Data...
+2022-09-23 16:18:19,566 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:18:19,597 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:20:08,313 - root - INFO - Initialize main window
+2022-09-23 16:20:09,043 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:20:13,473 - root - INFO - Claimed Interface
+2022-09-23 16:20:13,474 - root - INFO - Writing Data...
+2022-09-23 16:20:13,475 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:20:13,476 - root - INFO - Writing Data...
+2022-09-23 16:20:13,477 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:28:50,246 - root - INFO - Initialize main window
+2022-09-23 16:28:50,912 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:28:55,429 - root - INFO - Claimed Interface
+2022-09-23 16:28:55,431 - root - INFO - Writing Data...
+2022-09-23 16:28:55,431 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:28:55,432 - root - INFO - Writing Data...
+2022-09-23 16:28:55,433 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:38:22,265 - root - INFO - speed_x: 0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:22,827 - root - INFO - speed_x: 0, speed_angle: 0.0, speed_factor: 0.23
+2022-09-23 16:38:22,966 - root - INFO - speed_x: 0, speed_angle: -1.0, speed_factor: 0.23
+2022-09-23 16:38:23,424 - root - INFO - speed_x: 1.0, speed_angle: -1.0, speed_factor: 0.23
+2022-09-23 16:38:24,319 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.23
+2022-09-23 16:38:24,880 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:25,434 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:26,014 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:26,538 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.23
+2022-09-23 16:38:26,849 - root - INFO - speed_x: -1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:27,423 - root - INFO - speed_x: -1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:32,029 - root - INFO - speed_x: 0.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:32,209 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:32,770 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:33,335 - root - INFO - speed_x: 0.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:33,423 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.23
+2022-09-23 16:38:35,046 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:35,619 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:35,874 - root - INFO - speed_x: 0.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:35,973 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.23
+2022-09-23 16:38:36,347 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:37,019 - root - INFO - speed_x: 1.0, speed_angle: 1.0, speed_factor: 0.23
+2022-09-23 16:38:37,627 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.23
+2022-09-23 16:38:38,260 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.23
+2022-09-23 16:40:51,369 - root - INFO - Initialize main window
+2022-09-23 16:40:52,099 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:40:56,842 - root - INFO - Claimed Interface
+2022-09-23 16:40:56,843 - root - INFO - Writing Data...
+2022-09-23 16:40:56,843 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:40:56,844 - root - INFO - Writing Data...
+2022-09-23 16:40:56,845 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:45:07,843 - root - INFO - Initialize main window
+2022-09-23 16:45:08,564 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:45:13,222 - root - INFO - Claimed Interface
+2022-09-23 16:45:13,223 - root - INFO - Writing Data...
+2022-09-23 16:45:13,224 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:45:13,225 - root - INFO - Writing Data...
+2022-09-23 16:45:13,226 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:45:20,032 - root - INFO - Initialize main window
+2022-09-23 16:45:20,750 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:45:25,316 - root - INFO - Claimed Interface
+2022-09-23 16:45:25,317 - root - INFO - Writing Data...
+2022-09-23 16:45:25,317 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:45:25,318 - root - INFO - Writing Data...
+2022-09-23 16:45:25,319 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:46:58,844 - root - INFO - Initialize main window
+2022-09-23 16:46:59,531 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:47:04,129 - root - INFO - Claimed Interface
+2022-09-23 16:47:04,130 - root - INFO - Writing Data...
+2022-09-23 16:47:04,131 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:47:04,132 - root - INFO - Writing Data...
+2022-09-23 16:47:04,133 - root - WARNING - 2 - b'Other error'
+2022-09-23 16:51:50,468 - root - INFO - Initialize main window
+2022-09-23 16:51:51,240 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 16:51:55,794 - root - INFO - Claimed Interface
+2022-09-23 16:51:55,795 - root - INFO - Writing Data...
+2022-09-23 16:51:55,796 - root - WARNING - 8 - b'Other error'
+2022-09-23 16:51:55,797 - root - INFO - Writing Data...
+2022-09-23 16:51:55,797 - root - WARNING - 2 - b'Other error'
+2022-09-23 17:04:57,376 - root - INFO - Initialize main window
+2022-09-23 17:04:58,109 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:05:02,801 - root - INFO - Claimed Interface
+2022-09-23 17:05:02,802 - root - INFO - Writing Data...
+2022-09-23 17:05:02,803 - root - WARNING - 8 - b'Other error'
+2022-09-23 17:05:02,804 - root - INFO - Writing Data...
+2022-09-23 17:05:02,805 - root - WARNING - 2 - b'Other error'
+2022-09-23 17:05:55,705 - root - INFO - Initialize main window
+2022-09-23 17:05:56,661 - root - INFO - Claimed Interface
+2022-09-23 17:05:56,662 - root - INFO - Writing Data...
+2022-09-23 17:05:56,663 - root - WARNING - 8 - b'Other error'
+2022-09-23 17:05:56,664 - root - INFO - Writing Data...
+2022-09-23 17:05:56,665 - root - WARNING - 2 - b'Other error'
+2022-09-23 17:05:56,713 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:02,317 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:02,894 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:04,165 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:04,383 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:06,599 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:06,942 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:08,771 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:09,349 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:10,758 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:11,333 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:12,324 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:12,562 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:12,660 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:12,776 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:14,011 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:14,135 - root - INFO - speed_x: -1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:07:14,524 - root - INFO - speed_x: -1.0, speed_angle: -1.0, speed_factor: 0.0
+2022-09-23 17:07:14,927 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.0
+2022-09-23 17:07:15,452 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.0
+2022-09-23 17:07:16,009 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.0
+2022-09-23 17:07:16,133 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.0
+2022-09-23 17:07:16,694 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.0
+2022-09-23 17:07:17,801 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:18,372 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:18,637 - root - INFO - speed_x: -1.0, speed_angle: -1.0, speed_factor: 0.17
+2022-09-23 17:07:19,204 - root - INFO - speed_x: -1.0, speed_angle: -1.0, speed_factor: 0.17
+2022-09-23 17:07:19,762 - root - INFO - speed_x: -1.0, speed_angle: -1.0, speed_factor: 0.17
+2022-09-23 17:07:20,088 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:20,651 - root - INFO - speed_x: -1.0, speed_angle: 1.0, speed_factor: 0.17
+2022-09-23 17:07:20,913 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:21,475 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:22,045 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:22,168 - root - INFO - speed_x: -1.0, speed_angle: 1.0, speed_factor: 0.17
+2022-09-23 17:07:26,205 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:26,364 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:26,936 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:27,497 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:28,078 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:28,640 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:29,212 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:29,780 - root - INFO - speed_x: -1.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:07:30,284 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.17
+2022-09-23 17:08:24,291 - root - INFO - Initialize main window
+2022-09-23 17:08:24,963 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:08:29,580 - root - INFO - Claimed Interface
+2022-09-23 17:08:29,581 - root - INFO - Writing Data...
+2022-09-23 17:08:29,582 - root - WARNING - 8 - b'Other error'
+2022-09-23 17:08:29,583 - root - INFO - Writing Data...
+2022-09-23 17:08:29,584 - root - WARNING - 2 - b'Other error'
+2022-09-23 17:10:35,368 - root - INFO - Initialize main window
+2022-09-23 17:10:36,128 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:10:40,812 - root - INFO - Claimed Interface
+2022-09-23 17:10:40,813 - root - INFO - Writing Data...
+2022-09-23 17:10:40,814 - root - WARNING - 8 - b'Other error'
+2022-09-23 17:10:40,815 - root - INFO - Writing Data...
+2022-09-23 17:10:40,816 - root - WARNING - 2 - b'Other error'
+2022-09-23 17:12:30,977 - root - INFO - Initialize main window
+2022-09-23 17:12:31,722 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:12:36,358 - root - INFO - Claimed Interface
+2022-09-23 17:12:36,359 - root - INFO - Writing Data...
+2022-09-23 17:12:36,360 - root - WARNING - 8 - b'Other error'
+2022-09-23 17:12:36,361 - root - INFO - Writing Data...
+2022-09-23 17:12:36,361 - root - WARNING - 2 - b'Other error'
+2022-09-23 17:16:28,942 - root - INFO - Initialize main window
+2022-09-23 17:16:29,680 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:16:34,244 - root - INFO - Claimed Interface
+2022-09-23 17:16:34,245 - root - INFO - Writing Data...
+2022-09-23 17:16:34,246 - root - WARNING - 8 - b'Other error'
+2022-09-23 17:16:34,247 - root - INFO - Writing Data...
+2022-09-23 17:16:34,248 - root - WARNING - 2 - b'Other error'
+2022-09-23 17:18:33,406 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:33,528 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:35,625 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:35,748 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:35,959 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:36,053 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:36,195 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:36,272 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:36,380 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:36,470 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:36,593 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:37,176 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:18:43,715 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:44,227 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:44,760 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:45,331 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:45,505 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:47,257 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:47,818 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:48,393 - root - INFO - speed_x: 1.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:48,763 - root - INFO - speed_x: 0.0, speed_angle: 0, speed_factor: 0.2
+2022-09-23 17:18:50,643 - root - INFO - speed_x: 0.0, speed_angle: -1.0, speed_factor: 0.2
+2022-09-23 17:18:51,216 - root - INFO - speed_x: 0.0, speed_angle: -1.0, speed_factor: 0.2
+2022-09-23 17:18:51,781 - root - INFO - speed_x: 0.0, speed_angle: -1.0, speed_factor: 0.2
+2022-09-23 17:18:52,307 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:23,116 - root - INFO - speed_x: 1.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:23,240 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:23,877 - root - INFO - speed_x: 1.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:24,449 - root - INFO - speed_x: 1.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:25,016 - root - INFO - speed_x: 1.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:25,589 - root - INFO - speed_x: 1.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:25,882 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:26,376 - root - INFO - speed_x: 1.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:19:26,818 - root - INFO - speed_x: 0.0, speed_angle: 0.0, speed_factor: 0.2
+2022-09-23 17:20:35,121 - root - INFO - Initialize main window
+2022-09-23 17:20:35,814 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-23 17:20:40,312 - root - INFO - Claimed Interface
+2022-09-23 17:20:40,313 - root - INFO - Writing Data...
+2022-09-23 17:20:40,313 - root - WARNING - 8 - b'Other error'
+2022-09-23 17:20:40,314 - root - INFO - Writing Data...
+2022-09-23 17:20:40,315 - root - WARNING - 2 - b'Other error'
+2022-09-26 09:25:20,048 - root - INFO - Initialize main window
+2022-09-26 09:26:20,060 - root - ERROR - not connected
+2022-09-26 09:26:20,960 - root - INFO - Claimed Interface
+2022-09-26 09:26:20,961 - root - INFO - Writing Data...
+2022-09-26 09:26:20,962 - root - WARNING - 8 - b'Other error'
+2022-09-26 09:26:20,963 - root - INFO - Writing Data...
+2022-09-26 09:26:20,964 - root - WARNING - 2 - b'Other error'
+2022-09-26 09:26:30,291 - root - INFO - Initialize main window
+2022-09-26 09:27:18,152 - root - INFO - Initialize main window
+2022-09-26 09:27:18,153 - root - ERROR - not connected
+2022-09-26 09:27:18,480 - root - INFO - Claimed Interface
+2022-09-26 09:27:18,481 - root - INFO - Writing Data...
+2022-09-26 09:27:18,481 - root - WARNING - 8 - b'Other error'
+2022-09-26 09:27:18,482 - root - INFO - Writing Data...
+2022-09-26 09:27:18,483 - root - WARNING - 2 - b'Other error'
+2022-09-26 09:28:11,812 - root - INFO - Initialize main window
+2022-09-26 09:28:14,190 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:28:21,249 - root - ERROR - not connected
+2022-09-26 09:28:21,665 - root - INFO - Claimed Interface
+2022-09-26 09:28:21,667 - root - INFO - Writing Data...
+2022-09-26 09:28:21,667 - root - WARNING - 8 - b'Other error'
+2022-09-26 09:28:21,668 - root - INFO - Writing Data...
+2022-09-26 09:28:21,669 - root - WARNING - 2 - b'Other error'
+2022-09-26 09:28:46,578 - root - INFO - Initialize main window
+2022-09-26 09:28:47,705 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:28:51,838 - root - ERROR - not connected
+2022-09-26 09:28:52,153 - root - INFO - Claimed Interface
+2022-09-26 09:28:52,155 - root - INFO - Writing Data...
+2022-09-26 09:28:52,155 - root - WARNING - 8 - b'Other error'
+2022-09-26 09:28:52,156 - root - INFO - Writing Data...
+2022-09-26 09:28:52,157 - root - WARNING - 2 - b'Other error'
+2022-09-26 09:30:26,573 - root - INFO - Initialize main window
+2022-09-26 09:30:27,344 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:30:31,562 - root - ERROR - not connected
+2022-09-26 09:30:31,984 - root - INFO - Claimed Interface
+2022-09-26 09:30:31,985 - root - INFO - Writing Data...
+2022-09-26 09:30:31,986 - root - WARNING - 8 - b'Other error'
+2022-09-26 09:30:31,987 - root - INFO - Writing Data...
+2022-09-26 09:30:31,988 - root - WARNING - 2 - b'Other error'
+2022-09-26 09:31:23,116 - root - INFO - Initialize main window
+2022-09-26 09:31:23,921 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:31:28,262 - root - ERROR - not connected
+2022-09-26 09:31:28,666 - root - INFO - Claimed Interface
+2022-09-26 09:31:28,667 - root - INFO - Writing Data...
+2022-09-26 09:31:28,668 - root - WARNING - 8 - b'Other error'
+2022-09-26 09:31:28,669 - root - INFO - Writing Data...
+2022-09-26 09:31:28,670 - root - WARNING - 2 - b'Other error'
+2022-09-26 09:32:39,538 - root - INFO - Initialize main window
+2022-09-26 09:32:40,303 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:37:00,489 - root - INFO - Initialize main window
+2022-09-26 09:37:00,490 - root - ERROR - not connected
+2022-09-26 09:37:12,953 - root - INFO - Initialize main window
+2022-09-26 09:37:13,735 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:37:51,481 - root - INFO - Initialize main window
+2022-09-26 09:37:52,280 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:38:52,725 - root - INFO - Initialize main window
+2022-09-26 09:38:52,726 - root - ERROR - not connected
+2022-09-26 09:39:05,789 - root - INFO - Initialize main window
+2022-09-26 09:39:06,517 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:42:35,735 - root - INFO - Initialize main window
+2022-09-26 09:42:36,533 - root - INFO - speed_x: 0, speed_angle: 0, speed_factor: 0.0
+2022-09-26 09:42:41,265 - root - INFO - Claimed Interface
+2022-09-26 09:42:41,266 - root - INFO - Writing Data...
+2022-09-26 09:42:41,267 - root - WARNING - 8 - b'Other error'
+2022-09-26 09:42:41,270 - root - INFO - Writing Data...
+2022-09-26 09:42:41,271 - root - WARNING - 2 - b'Other error'

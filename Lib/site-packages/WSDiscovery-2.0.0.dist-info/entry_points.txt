@@ -1,0 +1,4 @@
+[console_scripts]
+wsdiscover = wsdiscovery.cmdline:discover
+wspublish = wsdiscovery.cmdline:publish
+

@@ -5,6 +5,7 @@ import threading
 import time
 os.environ['PYTHON_VLC_MODULE_PATH'] = "./vlc"
 import logging
+import logging.config
 import vlc
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
@@ -14,9 +15,21 @@ from PyQt5.QtPrintSupport import *
 
 from chitu import Ui_MainWindow
 from AGV import agv
+from AGV_MAP_UTIL import *
 from UVC_Controller import UVCController
 from ptz_control import *
 
+from datetime import datetime
+
+import yaml
+with open("logger_setting.yaml","r") as f:
+    config = yaml.full_load(f)
+    logger = logging.config.dictConfig(config)
+
+CAMERA_VID = 0x04B4
+Camera_PID = 0x00F9
+# can be searched by ws dircovery
+#not implemented yet
 CameraIP = '192.168.8.251'
 CameraSetting = {
     'AbsolutePanMin'        : -170, 
@@ -33,7 +46,7 @@ class vlc_player():
         self.player = self.Instance.media_player_new()
         self.player.video_set_mouse_input(False)
         self.player.video_set_key_input(False)
-        self.player.set_mrl(url, "network-caching=300")
+        self.player.set_mrl(url, "network-caching=1000")
         self.player.audio_set_mute(True)
     
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -42,6 +55,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
+        logging.info("Initialize main window")
         self.translate = QCoreApplication.translate
         self.speed = 0.0
         self.x = 0
@@ -73,26 +87,47 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.AGV_MAP_IMG.setPixmap(Qmap)
             self.agv.GET_stop_navigation()
             ###############################
-            
+            # Navigation settings
+            self.nav_task_stat = False
+            self.maps = from_json_to_map(self.agv.GET_navigation_points_connections())
+            self.MAP.addItems(list(self.maps.keys()))
+            self.PATH.addItems(list(self.maps[self.MAP.currentText()].paths.keys()))
+            ls = list(self.maps[self.MAP.currentText()].paths[self.PATH.currentText()].points.keys())
+            ls.insert(0, 'auto')
+            self.Point.addItems(ls)
+            self.MAP.currentIndexChanged.connect(self.map_combobox_change_path_box)
+            self.PATH.currentIndexChanged.connect(self.path_combobox_change_point_box)
 
+            self.Start_Navigation.clicked.connect(self.start_close_navigation)
+            self.start_navigate_pt_button.clicked.connect(self.start_pause_navigation)
+            self.Navigation_Cancel.clicked.connect(self.stop_navigation)
+            
+            
         except:
-            logging.warning('not connected')
+            logging.error('not connected')
             self.agv = 0
 
-        
         self.SET_mouse_event_to_control_robot_AGV_button()
         self.SpeedSlider.valueChanged.connect(self.SET_speed_slider_to_local_speed)
         
-        self.camera = UVCController(0x04B4, 0x00F9)
+        self.tabWidget.setCurrentIndex(0)
         self.SET_Camera_Slider()
-        self.connect_slider_spinBox()
-        self.camera.PanTiltAbsoluteControl(0, 0)
-        self.camera.ZoomAbsoluteControl(0)
-        
-        self.onvif_camera = ptzControl(CameraIP, 80, 'admin', 'password')
-        if True:
-            def onvif_camera(self):
-                pass
+        try:
+            self.camera = UVCController(CAMERA_VID, CAMERA_PID)
+        except:
+            try:
+                self.camera = ptzControl(CameraIP, 80, 'admin', 'password')
+                def PanTiltAbsoluteControl(x, y):
+                    self.camera.move_abspantilt(x, y, 1)
+                def ZoomAbsoluteControl(speed):
+                    self.zoom(speed)
+                # current zoom not in absolute control
+            except:
+                self.camera = 0
+        if self.camera:
+            self.connect_slider_spinBox()
+            self.camera.PanTiltAbsoluteControl(0, 0)
+            self.camera.ZoomAbsoluteControl(0)
         
         self.videoPlayer = vlc_player("rtsp://admin:password@{}:554/live/av0".format(CameraIP)).player
         if self.agv:
@@ -102,17 +137,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.frame.mouseDoubleClickEvent = self.mouse_event
         if sys.platform.startswith('linux'): # for Linux using the X Server
             self.videoPlayer.set_xwindow(self.video_widget.winId())
-            self.bottom_camera.set_xwindow(self.AGV_CAMERA.winId())
+            self.bottom_camera.set_xwindow(self.AGV_CAMERA_VID.winId())
         elif sys.platform == "win32": # for Windows
             self.videoPlayer.set_hwnd(self.video_widget.winId())
-            self.bottom_camera.set_hwnd(self.AGV_CAMERA.winId())
+            self.bottom_camera.set_hwnd(self.AGV_CAMERA_VID.winId())
         elif sys.platform == "darwin": # for MacOS
             self.videoPlayer.set_nsobject(int(self.video_widget.winId()))
-            self.bottom_camera.set_nsobject(int(self.AGV_CAMERA.winId()))
+            self.bottom_camera.set_nsobject(int(self.AGV_CAMERA_VID.winId()))
         self.videoPlayer.play()
         self.bottom_camera.play()
 
-
+        self.Navigation_Cancel.hide()
+        self.Target_Navigation_Widget.hide()
+        
+        self.setWindowState(Qt.WindowMaximized)
         self.show()
         
     def closeEvent (self, event):
@@ -121,6 +159,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.shutdown_event.set()
         self.periodic_info_thread.join()
         self.control_thread.join()
+        if self.agv:
+            self.agv.GET_stop_navigation()
         
     def SET_robot_info_to_app(self):
         res = self.agv.GET_robot_info()
@@ -181,10 +221,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         elif name == 'Zoom':
             self.camera.ZoomAbsoluteControl(self.ZoomSlider.value())
 # End of Camera Control
-
+# AGV speed control
     def SET_mouse_event_to_control_robot_AGV_button(self):
         self.up.pressed.connect(lambda: self.AGV_control_pressed_event('up'))
         self.up.released.connect(lambda: self.AGV_control_released_event('up'))
+        self.down.pressed.connect(lambda: self.AGV_control_pressed_event('down'))
+        self.down.released.connect(lambda: self.AGV_control_released_event('down'))
+        self.left.pressed.connect(lambda: self.AGV_control_pressed_event('left'))
+        self.left.released.connect(lambda: self.AGV_control_released_event('left'))
+        self.right.pressed.connect(lambda: self.AGV_control_pressed_event('right'))
+        self.right.released.connect(lambda: self.AGV_control_released_event('right'))
 
     def SET_speed_slider_to_local_speed(self, val):
         self.speed = val/100.0
@@ -209,8 +255,85 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.angle = 0.0
         if self.agv:
             self.control_event.set()
-
-
+# End of AGV Speed Control
+# AGV Navigation Control
+    def init_navigation_tab(self):
+        pass
+    def map_combobox_change_path_box(self):
+        self.PATH.clear()
+        self.PATH.addItems(list(self.maps[self.MAP.currentText()].paths.keys()))
+        Qmap = QPixmap()
+        Qmap.loadFromData(self.agv.GET_map_png(self.MAP.currentText()), 'png')
+        self.AGV_MAP_IMG.setPixmap(Qmap)
+    def path_combobox_change_point_box(self):
+        self.Point.clear()
+        if self.PATH.currentText():
+            ls = list(self.maps[self.MAP.currentText()].paths[self.PATH.currentText()].points.keys())
+            ls.insert(0, 'auto')
+            self.Point.addItems(ls)
+    def start_close_navigation(self):
+        # if button is checked
+        if self.Start_Navigation.isChecked():
+            # setting background color to light-blue
+            self.Start_Navigation.setText('Cancel Navigation')
+            self.Start_Navigation.setStyleSheet("background-color : lightgrey")
+            if self.agv:
+                self.Target_Navigation_Widget.show()
+                self.Point_index.clear()
+                self.Point_index.addItems(list(self.maps[self.MAP.currentText()].paths[self.PATH.currentText()].points.keys()))
+                if self.Point.currentText() == 'auto':
+                    self.agv.GET_start_navigation(self.MAP.currentText(), self.PATH.currentText())
+                else:
+                    self.agv.GET_start_navigation(self.MAP.currentText(), self.PATH.currentText(), self.maps[self.MAP.currentText()].paths[self.PATH.currentText()].points[self.Point.currentText()].index)
+                
+        # if it is unchecked
+        else:
+            # set background color back to light-grey
+            self.Start_Navigation.setText('Start Navigation')
+            self.Start_Navigation.setStyleSheet("background-color : white")
+            if self.agv:
+                self.Target_Navigation_Widget.hide()
+                self.agv.GET_stop_navigation()
+                self.nav_task_stat = False
+                self.start_navigate_pt_button.setText('Start')
+                self.start_navigate_pt_button.setStyleSheet("background-color : white")
+                self.start_navigate_pt_button.setChecked(False)
+                self.Navigation_Cancel.hide()
+                
+    def start_pause_navigation(self):
+        if self.start_navigate_pt_button.isChecked():
+            
+            self.start_navigate_pt_button.setText('Pause')
+            self.start_navigate_pt_button.setStyleSheet("background-color : lightgrey")
+            self.Navigation_Cancel.show()
+            if self.agv:
+                if not self.nav_task_stat:
+                    logging.debug('start navigation task')
+                    result = self.agv.GET_navigation_move_to_index(self.maps[self.MAP.currentText()].paths[self.PATH.currentText()].points[self.Point_index.currentText()].index, self.MAP.currentText(), self.PATH.currentText())
+                    self.nav_task_stat = True
+                    self.currentTask_id = result['id']
+                    thread = threading.Thread(target=self.AGV_check_task_status, args = (self.stop_navigation, self.currentTask_id, 0.5))
+                    thread.start()
+                else:
+                    logging.debug('continue navigation task')
+                    self.agv.GET_resume_task(self.currentTask_id)
+        else:
+            print('pause navigation task')
+            self.start_navigate_pt_button.setText('Continue')
+            self.start_navigate_pt_button.setStyleSheet("background-color : white")
+            self.agv.GET_pause_task(self.currentTask_id)
+    
+    def stop_navigation(self):
+        print('stop')
+        self.start_navigate_pt_button.setText('Start')
+        self.start_navigate_pt_button.setStyleSheet("background-color : white")
+        self.start_navigate_pt_button.setChecked(False)
+        self.Navigation_Cancel.hide()
+        self.nav_task_stat = False
+        self.agv.GET_stop_nav_task()
+    # def start_nav_task(self):
+    #     return
+# End of AGV Navigation Control
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_W and self.x != 1.0:
             self.AGV_control_pressed_event(dir='up')
@@ -257,36 +380,43 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     
     # Thread
     def AGV_info_thread(self, timeout):
+        
         while not self.shutdown_event.is_set():
+            
             self.SET_robot_info_to_app()
             self.shutdown_event.wait(timeout)
             
     def AGV_control_thread(self, timeout):
         flag = 0
+        print('ok')
         while not self.shutdown_event.is_set():
-            
+            print('going')
             self.control_event.wait(timeout)
             x = self.x * self.speed
             angle = self.angle * self.speed
             self.agv.PUT_robot_speed(x, angle)
             self.control_event.clear()
-            logging.debug('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
+            logging.info('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
             if x + angle == 0 and not flag:
                 flag = 1
                 self.control_event.wait()
             elif flag:
                 flag = 0
-                
-    def __del__(self):
-        self.window.control_thread.join()
+    def AGV_check_task_status(self, func, id, timeout):
+        while not self.shutdown_event.is_set():
+            
+            res = self.agv.GET_task(id)
+            if res['current_task']['state'] == 'COMPLETE' or res['current_task']['state'] == 'CANCELLED':
+                return func()
+            self.shutdown_event.wait(timeout)
+        
+    
 class Application():
     def __init__(self):
-        logging.basicConfig(level=logging.DEBUG, format="%(asctime)s.%(msecs)03d [%(levelname)s] [%(module)s - %(funcName)s]: %(message)s", handlers=[logging.StreamHandler(), logging.FileHandler('debug.log')] )
         self.app = QApplication(sys.argv)
         self.app.setApplicationName("simulator")
         self.window = MainWindow()
         self.app.exec_()
-        self.window.control_thread.join()
 
 
     

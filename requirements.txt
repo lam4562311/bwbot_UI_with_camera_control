@@ -6,3 +6,4 @@ PyQtWebEngine
 requests
 onvif_zeep
 opencv-python
+#WSDiscovery

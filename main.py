@@ -394,7 +394,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.control_event.wait(timeout)
             x = self.x * self.speed
             angle = self.angle * self.speed
-            self.agv.PUT_robot_speed(x, angle)
+            self.agv.PUT_robot_speed(x=x, angle=angle)
             self.control_event.clear()
             logging.info('speed_x: {}, speed_angle: {}, speed_factor: {}'.format(self.x, self.angle, self.speed))
             if x + angle == 0 and not flag:
